@@ -1,0 +1,7 @@
+songs.csv
+dist/
+*.egg-info/
+build/
+_pycache_/
+.cache
+.env
