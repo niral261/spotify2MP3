@@ -60,7 +60,7 @@ We welcome contributions from enthusiastic developers! Here's how you can get in
 
 Distributed under the permissive MIT License. See the `LICENSE` file for details.
 
-	Contact:
+👉 Contact:
 
 Github: [niral261](https://github.com/niral261)
 
