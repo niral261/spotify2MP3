@@ -3,7 +3,7 @@ Unleash Your Playlists: Spotify2MP3
 Effortlessly convert your Spotify playlists to MP3s and enjoy them anywhere, anytime.
 This user-friendly tool, Spotify2MP3, bridges the gap between your favorite Spotify playlists and offline listening.  By harnessing the power of Spotify's API and YouTube, it seamlessly downloads your playlists as MP3 files.
 
- 	Key Features:
+	Key Features:
 Spotify Integration: Securely fetch playlist data using Spotify's OAuth authentication.
 YouTube to MP3: Download playlist songs in MP3 format based on Spotify data.
 Effortless Interface: Navigate with ease using the intuitive command-line interface.
