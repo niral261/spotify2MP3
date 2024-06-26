@@ -32,12 +32,17 @@ YouTube-DL library (for MP3 downloads)
   
 3. Set Up Spotify Credentials:
 •	Create a Spotify Developer account and register your application.
+
 •	Obtain your Client ID and Client Secret.
+
 •	Add these credentials as environment variables or store them in a `.env` file.
 
    Here's an example `.env` file:
+
    CLIENT_ID=your_spotify_client_id
+   
    CLIENT_SECRET=your_spotify_client_secret
+
 
 👉 Using Spotify2MP3:
 
