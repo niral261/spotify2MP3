@@ -81,5 +81,9 @@ def create_spotify_oauth():
             redirect_uri=os.getenv('SPOTIPY_REDIRECT_URI'),
             scope="user-library-read")
 
+# This part ensures the app can be served by Waitress
+application = app
+
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=5000)
+    from waitress import serve
+    serve(application, host='0.0.0.0', port=5000)
