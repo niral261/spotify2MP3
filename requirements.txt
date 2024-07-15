@@ -6,5 +6,8 @@ requests_html
 beautifulsoup4
 youtube_dl
 pandas
+<<<<<<< HEAD
 python-dotenv
-gunicorn
+=======
+dotenv
+>>>>>>> c5756947b78b9d35ab41b87bc90e7623b354f3ca
