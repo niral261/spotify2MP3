@@ -5,12 +5,16 @@ import yt_dlp as youtube_dl
 import pandas as pd
 import os
 
+def create_directory(directory):
+    try:
+        os.makedirs(directory, exist_ok=True)
+        print(f"Directory '{directory}' created successfully.")
+    except OSError as e:
+        print(f"Error creating directory '{directory}': {e}")
+
 def DownloadVideosFromIds(lov):
     RAPCHIK_SONGS = str(os.path.join(Path.home(), "Downloads/songs"))
-    try:
-        os.makedirs(RAPCHIK_SONGS, exist_ok=True)
-    except OSError as e:
-        print(f"Error creating directory: {e}")
+    create_directory(RAPCHIK_SONGS)
     
     ydl_opts = {
         'format': 'bestaudio/best',
@@ -53,6 +57,7 @@ def GetVideoUrl(query):
 
 def DownloadVideosFromTitles(songs):
     RAPCHIK_SONGS = str(os.path.join(Path.home(), "Downloads/songs"))
+    create_directory(RAPCHIK_SONGS)
     
     existing_songs = set(os.path.splitext(f)[0] for f in os.listdir(RAPCHIK_SONGS) if os.path.isfile(os.path.join(RAPCHIK_SONGS, f)))
     songs_to_download = [song for song in songs if song not in existing_songs]
@@ -74,13 +79,27 @@ def DownloadVideosFromTitles(songs):
         print("No valid video URLs found to download")
 
 def main():
+    # Construct the absolute path for the CSV file
+    csv_path = os.path.join(os.getcwd(), 'songs.csv')  # Use absolute path
+    
+    print(f"Looking for CSV file at: {csv_path}")
+    
     try:
-        data = pd.read_csv('songs.csv')
+        # Read the CSV file
+        data = pd.read_csv(csv_path)
         songs = data['song names'].tolist()
+        
         print(f"Found {len(songs)} songs in CSV file.")
+        
+        # Print the list of songs to verify
+        print("Songs list:", songs)
+        
+        # Proceed to download the songs
         DownloadVideosFromTitles(songs)
     except FileNotFoundError:
-        print("Error: 'songs.csv' not found.")
+        print(f"Error: '{csv_path}' not found.")
+    except pd.errors.EmptyDataError:
+        print(f"Error: '{csv_path}' is empty or malformed.")
 
 if __name__ == '__main__':
     main()
