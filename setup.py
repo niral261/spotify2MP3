@@ -8,7 +8,9 @@ requires = [
     'requests_html',
     'beautifulsoup4',
     'youtube_dl',
-    'pandas'
+    'pandas',
+    'gunicorn',
+    'python-dotenv'
 ]
 
 

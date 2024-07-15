@@ -6,3 +6,5 @@ requests_html
 beautifulsoup4
 youtube_dl
 pandas
+python-dotenv
+gunicorn
