@@ -11,7 +11,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-app.secret_key = os.getenv("FLASK_SECRET_KEY")
+app.secret_key = os.getenv('FLASK_SECRET_KEY')  # Load FLASK_SECRET_KEY from environment
 app.config['SESSION_COOKIE_NAME'] = 'Cookie Cream'
 TOKEN_INFO = "token_info"
 
@@ -41,7 +41,7 @@ def getTracks():
     try:
         token_info = get_token()
     except Exception as e:
-        print(f"Wanna come in? Plz 🙏 login. Error: {e}")
+        print(f"Error: {e}")
         return redirect("/")
     
     sp = spotipy.Spotify(auth=token_info['access_token'])
@@ -76,10 +76,10 @@ def get_token():
 
 def create_spotify_oauth():
     return SpotifyOAuth(
-            client_id=os.getenv("SPOTIPY_CLIENT_ID"),
-            client_secret=os.getenv("SPOTIPY_CLIENT_SECRET"),
-            redirect_uri=os.getenv("SPOTIPY_REDIRECT_URI"),
+            client_id=os.getenv('SPOTIPY_CLIENT_ID'),
+            client_secret=os.getenv('SPOTIPY_CLIENT_SECRET'),
+            redirect_uri=os.getenv('SPOTIPY_REDIRECT_URI'),
             scope="user-library-read")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
